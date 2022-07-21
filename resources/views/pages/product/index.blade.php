@@ -29,7 +29,8 @@
             <br>
 
             <div class="col-md-12 text-center">
-                <input type="submit" class="btn btn-warning btn-lg" value="ADD PRODUCT">
+                <p><input type="submit" class="btn btn-warning btn-lg" value="ADD PRODUCT">
+                    <a class="btn btn-warning btn-lg btn-block" href="/view" role="button">VIEW PRODUCT</a></p>
             </div>
         </form>            
     </div>
