@@ -35,7 +35,7 @@
                             @endif
                         </td>
                         <td>
-                            <a class="btn btn-warning btn-lg btn-block" href="{{ route('product.delete') }}" role="button">DELETE</a>
+                            <a class="btn btn-warning btn-sm btn-block" href="{{ route('product.delete', $post->id) }}" role="button">DELETE</a>
                         </td>
                     </tr>
                     @endforeach
