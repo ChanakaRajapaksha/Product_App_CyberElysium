@@ -3,24 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use domain\Facades\ProductFacade;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ProductController extends ParentController
 {   
-    protected $task;
-
-    public function __construct() {
-        $this->task = new Product();
-    } 
-
+    
     public function index() {
         return view('pages.product.index');
     } 
 
     public function store(Request $request) {
-        $this->task->create($request->all());
+
+        ProductFacade::store($request->all());
         return redirect()->back();
         //return redirect()->route('product');
+        
     } 
 
 }

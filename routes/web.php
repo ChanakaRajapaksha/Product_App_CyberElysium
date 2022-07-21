@@ -31,6 +31,3 @@ Route::prefix('/view')->group(function () {
     Route::get('/{post_id}/done', [ViewController::class, "done"])->name('product.done');
 });
 
-
-
-
