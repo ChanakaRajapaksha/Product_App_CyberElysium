@@ -23,6 +23,14 @@ class ViewController extends Controller
         $post->delete();
 
         return redirect()->back();
+    } 
+
+    public function done($post_id) {
+        $post = $this->post->find($post_id);
+        $post->status = 1;
+        $post->update();
+
+        return redirect()->back();
     }
     
 }

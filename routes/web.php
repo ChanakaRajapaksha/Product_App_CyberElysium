@@ -28,6 +28,7 @@ Route::prefix('/product')->group(function () {
 Route::prefix('/view')->group(function () {
     Route::get('/', [ViewController::class, "view"])->name('view');
     Route::get('/{post_id}/delete', [ViewController::class, "delete"])->name('product.delete');
+    Route::get('/{post_id}/done', [ViewController::class, "done"])->name('product.done');
 });
 
 
