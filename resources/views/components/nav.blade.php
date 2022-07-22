@@ -12,6 +12,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ route('view') }}">View Products</a>
           </li>
+        </ul>
       </div>
     </div>
   </nav>
