@@ -13,6 +13,18 @@
             <a class="nav-link active" aria-current="page" href="{{ route('view') }}">View Products</a>
           </li>
         </ul>
+        @if (Auth::user())
+        <form method="POST" action="{{ route('logout') }}" x-data>
+          @csrf
+
+          <x-jet-dropdown-link href="{{ route('logout') }}"
+                   @click.prevent="$root.submit();">
+              {{ __('Log Out') }}
+          </x-jet-dropdown-link>
+        </form> 
+        @else 
+        <span><a href="{{ route('login') }}">Login</a></span> || <span><a href="{{ route('register') }}">Register</a></span>
+        @endif
       </div>
     </div>
   </nav>

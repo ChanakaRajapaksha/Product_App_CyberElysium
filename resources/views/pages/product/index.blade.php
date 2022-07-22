@@ -13,7 +13,7 @@
             <div class="row justify-content-around">
                 <div class="col-md-8 mb-4">
                     <label for="incomeid"><h5>Product Name</h5></label>
-                    <input class="form-control form-control-lg" type="text" class="form-control" name="name" maxlength="20" required>
+                    <input class="form-control form-control-lg" type="text" class="form-control" name="name" maxlength="100" required>
                     <br>
                 </div> 
             </div> 
