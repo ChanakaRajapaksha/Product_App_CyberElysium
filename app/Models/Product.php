@@ -11,8 +11,15 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'image_id',
         'price',
         'status'
-    ];
+    ]; 
+
+    public function images()
+    {
+        return $this->hasOne(Image::class, 'id', 'image_id');
+    }
+
 
 }

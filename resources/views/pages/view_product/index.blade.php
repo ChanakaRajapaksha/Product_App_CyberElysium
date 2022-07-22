@@ -26,7 +26,7 @@
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->name }}</td>
                         <td>{{ $post->price }}</td>
-                        <td></td>
+                        <td><img src="{{ config('images.upload_path') }}/{{ $post->images->name }}" width="150px"></td>
                         <td>
                             @if ($post->status == 0)
                                 <span class="badge bg-danger">Inactive</span>
@@ -36,7 +36,12 @@
                         </td>
                         <td>
                             <a class="btn btn-warning btn-sm btn-block" href="{{ route('product.delete', $post->id) }}" role="button">DELETE</a>
-                            <a class="btn btn-warning btn-sm btn-block" href="{{ route('product.done', $post->id) }}" role="button">DONE</a>
+                            @if ($post->status == 0)
+                                <a class="btn btn-warning btn-sm btn-block" href="{{ route('product.done', $post->id) }}" role="button">PUBLISH</a>
+                            @else
+                                <a class="btn btn-warning btn-sm btn-block" href="{{ route('product.done', $post->id) }}" role="button">DRAFT</a>
+                            @endif
+                           
                         </td>
                     </tr>
                     @endforeach

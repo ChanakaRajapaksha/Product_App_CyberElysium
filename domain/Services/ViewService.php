@@ -3,6 +3,7 @@
 namespace domain\Services; 
 
 use App\Models\Product;
+use App\Models\Image;
 
 class ViewService
 {
@@ -16,6 +17,10 @@ class ViewService
         return $this->post->all();
     } 
 
+    public function allActive() {
+        return $this->post->allActive();
+    }
+
     public function delete($post_id) {
         $post = $this->post->find($post_id);
         $post->delete();
@@ -23,7 +28,13 @@ class ViewService
 
     public function done($post_id) {
         $post = $this->post->find($post_id);
-        $post->status = 1;
-        $post->update();
+        if($post->status == 0) {
+            $post->status = 1;
+            $post->update();
+        } else {
+            $post->status = 0;
+            $post->update();
+        }
     }
+        
 }

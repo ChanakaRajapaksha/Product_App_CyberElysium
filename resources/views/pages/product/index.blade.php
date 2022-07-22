@@ -8,7 +8,7 @@
             <h1 class="page-title">Product Details</h1>
         </div>
 
-        <form method="post" action="{{ route('product.store') }}" enctype="multipart/form"> 
+        <form method="post" action="{{ route('product.store') }}" enctype="multipart/form-data" role="form"> 
             {{ csrf_field() }}
             <div class="row justify-content-around">
                 <div class="col-md-8 mb-4">
@@ -22,6 +22,14 @@
                 <div class="col-md-8 mb-4">
                     <label for="monthlyincome"><h5> Product Price(Rs.)</h5></label>
                     <input type="text" class="form-control form-control-lg" name="price">
+                     <br>
+                </div>
+            </div> 
+
+            <div class="row justify-content-around">
+                <div class="col-md-8 mb-4">
+                    <label for="monthlyincome"><h5> Product Image</h5></label>
+                    <input type="file" class="form-control form-control-lg" name="images" accept="image/jpg, image/jpeg, image/png">
                      <br>
                 </div>
             </div>
