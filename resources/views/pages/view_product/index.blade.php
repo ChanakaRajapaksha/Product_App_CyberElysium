@@ -26,7 +26,7 @@
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->name }}</td>
                         <td>{{ $post->price }}</td>
-                        <td><img src="{{ config('images.upload_path') }}/{{ $post->images->name }}" width="150px"></td>
+                        <td><img src="{{ config('images.upload_path') }}/{{ $post->images->name }}" class="table-iamge"></td>
                         <td>
                             @if ($post->status == 0)
                                 <span class="badge bg-danger">Inactive</span>
@@ -60,6 +60,10 @@
             padding-bottom: 8vh;
             font-size: 60px;
             color: #1A237E;
+        } 
+        .table-iamge {
+            width: 150px;
+            height: 120px;
         }
     </style>
 @endpush
