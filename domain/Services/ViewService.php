@@ -17,6 +17,12 @@ class ViewService
         return $this->post->all();
     } 
 
+    public function get($post_id) {
+
+        return $this->post->find($post_id);
+
+    }
+
     public function allActive() {
         return $this->post->allActive();
     }
@@ -35,6 +41,19 @@ class ViewService
             $post->status = 0;
             $post->update();
         }
+    } 
+
+    public function update(array $data, $post_id) {
+
+        $post = $this->post->find($post_id);
+        $post->update($this->edit($post, $data));
+
+    } 
+
+    protected function edit(Product $post, $data) {
+
+        return array_merge($post->toArray(),  $data);
+        
     }
         
 }

@@ -13,7 +13,7 @@
             <div class="row justify-content-around">
                 <div class="col-md-8 mb-4">
                     <label for="incomeid"><h5>Product Name</h5></label>
-                    <input class="form-control form-control-lg" type="text" class="form-control" name="name">
+                    <input class="form-control form-control-lg" type="text" class="form-control" name="name" required>
                     <br>
                 </div> 
             </div> 
@@ -21,7 +21,7 @@
             <div class="row justify-content-around">
                 <div class="col-md-8 mb-4">
                     <label for="monthlyincome"><h5> Product Price(Rs.)</h5></label>
-                    <input type="text" class="form-control form-control-lg" name="price">
+                    <input type="text" class="form-control form-control-lg" name="price" required>
                      <br>
                 </div>
             </div> 
@@ -29,7 +29,7 @@
             <div class="row justify-content-around">
                 <div class="col-md-8 mb-4">
                     <label for="monthlyincome"><h5> Product Image</h5></label>
-                    <input type="file" class="form-control form-control-lg" name="images" accept="image/jpg, image/jpeg, image/png">
+                    <input type="file" class="form-control form-control-lg" name="images" accept="image/jpg, image/jpeg, image/png" required>
                      <br>
                 </div>
             </div>

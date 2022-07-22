@@ -41,7 +41,7 @@
                             @else
                                 <a class="btn btn-warning btn-sm btn-block" href="{{ route('product.done', $post->id) }}" role="button">DRAFT</a>
                             @endif
-                           
+                                <a class="btn btn-warning btn-sm btn-block" href="javascript:void(0)" role="button" onclick="productEditModal({{ $post->id }})">EDIT</a>
                         </td>
                     </tr>
                     @endforeach
@@ -50,7 +50,23 @@
         </div>
 
     </div>
-</div>        
+</div> 
+
+<!-- Modal -->
+<div class="modal fade" id="productEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="productEditLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productEditLabel">Product Details Edit</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="productEditContent">
+            
+        </div>
+      </div>
+    </div>
+  </div>
+
 @endsection 
 
 @push('css')
@@ -66,4 +82,28 @@
             height: 120px;
         }
     </style>
+@endpush 
+
+@push('js')
+    <script>
+        function productEditModal(post_id) {
+            var data = {
+                post_id: post_id,
+            };
+            $.ajax({
+                url: "{{ route('product.edit') }}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }, 
+                type: 'GET',
+                dataType: '',
+                data: data,
+                success:  function (response) {
+                    $('#productEdit').modal('show');
+                    $('#productEditContent').html(response);
+                }
+
+            });
+        }
+    </script>
 @endpush

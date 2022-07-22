@@ -28,6 +28,8 @@ Route::prefix('/product')->group(function () {
 Route::prefix('/view')->group(function () {
     Route::get('/', [ViewController::class, "view"])->name('view');
     Route::get('/{post_id}/delete', [ViewController::class, "delete"])->name('product.delete');
+    Route::get('/edit', [ViewController::class, "edit"])->name('product.edit');
+    Route::post('/{post_id}/update', [ViewController::class, "update"])->name('product.update');
     Route::get('/{post_id}/done', [ViewController::class, "done"])->name('product.done');
 });
 

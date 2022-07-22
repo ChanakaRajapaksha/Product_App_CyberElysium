@@ -11,6 +11,7 @@ class ViewController extends ParentController
 {   
    
     public function view() {
+
         $response['posts'] = ViewFacade::all();
         return view('pages.view_product.index')->with($response);
 
@@ -28,6 +29,19 @@ class ViewController extends ParentController
         ViewFacade::done($post_id);
         return redirect()->back();
 
+    }  
+
+    public function edit(Request $request) { 
+
+        $response['post'] = ViewFacade::get($request['post_id']);
+        return view('pages.view_product.edit')->with($response);
+
     } 
+
+    public function update(Request $request, $post_id) {
+        
+        ViewFacade::update($request->all(), $post_id);
+        return redirect()->back();
+    }
     
 }
